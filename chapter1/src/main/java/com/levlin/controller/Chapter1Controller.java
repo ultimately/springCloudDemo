@@ -4,7 +4,6 @@ import com.levlin.annotation.CheckReqNo;
 import com.levlin.req.BaseResponse;
 import com.levlin.req.StatusEnum;
 import com.levlin.util.NULLBody;
-import com.levlin.util.RedisContent;
 import com.levlin.util.RedisContentReq;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +26,7 @@ public class Chapter1Controller {
     @ResponseBody
     public BaseResponse<NULLBody> createRedisContent(@RequestBody RedisContentReq redisContentReq){
         BaseResponse<NULLBody> response = new BaseResponse<NULLBody>() ;
-        RedisContent rediscontent = new RedisContent() ;
         try {
-            //CommonUtil.setLogValueModelToModel(redisContentReq,rediscontent);
-            //rediscontentMapper.insertSelective(rediscontent) ;
             response.setReqNo(redisContentReq.getReqNo());
             response.setCode(StatusEnum.SUCCESS.getCode());
             response.setMessage(StatusEnum.SUCCESS.getMessage());
