@@ -56,7 +56,7 @@ public class EagleEyeImpl {
             //效验时间是否在合理范围内
             //validTimestamp(params);
             //效验随机数，5分钟随机数相同的请求非法
-            validEchostr(params);
+//            validEchostr(params);
             //效验签名
             //validSign(params);
             String encrypt = request.getEncryptstr();
