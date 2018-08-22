@@ -18,7 +18,7 @@ public class MyBatisScannerConfig {
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
 
         Properties properties = new Properties();//设置通用mapper的属性
-        /*properties.setProperty("mappers", BaseBiz.class.getName());*/
+        properties.setProperty("mappers", "com.levlin.base.MyMapper");
         properties.setProperty("notEmpty", "false");
         properties.setProperty("IDENTITY", "MYSQL");
         mapperScannerConfigurer.setProperties(properties);

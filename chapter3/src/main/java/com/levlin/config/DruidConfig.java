@@ -132,7 +132,7 @@ public class DruidConfig {
             ApplicationContext applicationContext) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(druidDataSource());
-        sessionFactory.setTypeAliasesPackage("com.csj.cjsweb.model");
+        sessionFactory.setTypeAliasesPackage("com.levlin.model");
         //分页插件设置
         PageHelper pageHelper = new PageHelper();
         Properties properties = new Properties();
