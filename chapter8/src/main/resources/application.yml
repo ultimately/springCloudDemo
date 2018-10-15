@@ -1,0 +1,79 @@
+server:
+  port: 8001
+
+logging:
+  level:
+    root: DEBUG
+    tk.mybatis: DEBUG
+
+spring:
+  main:
+    banner-mode: "off"
+  devtools:
+    restart:
+      trigger-file: .trigger
+
+druid:
+  type: com.alibaba.druid.pool.DruidDataSource
+  study:
+    master:
+      url: jdbc:mysql://localhost:3306/study?useSSL=false&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+      initial-size: 5
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+    slave:
+      url: jdbc:mysql://localhost:3306/study_slave?useSSL=false&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+      initial-size: 5
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+  product:
+    master:
+      url: jdbc:mysql://localhost:3306/product?useSSL=false&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: A1b2c3@def.com
+      initial-size: 5
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+    slave:
+      url: jdbc:mysql://localhost:3306/product_slave?useSSL=false&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+      initial-size: 5
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+
+mybatis:
+  type-aliases-package: com.levlin.model
+  mapper-locations:
+  - classpath:mapper/product/*.xml
+  - classpath:mapper/study/*.xml
+  config-location: classpath:mybatis-config.xml
+
+mapper:
+  mappers:
+  - com.levlin.util.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+management:
+  security:
+    enabled: false
+  port: 9001
